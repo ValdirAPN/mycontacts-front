@@ -6,9 +6,6 @@ export default function Header() {
   return (
     <Container>
       <img src={logo} alt="MyContacts Logo" width="201" />
-      <InputSearchContainer>
-        <input type="text" placeholder="Pesquisar contato" />
-      </InputSearchContainer>
     </Container>
   )
 }
