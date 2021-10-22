@@ -7,6 +7,7 @@ export default styled.select`
   border: 2px solid #fff;
   border-radius: 4px;
   outline: none;
+  appearance: none;
 
   padding: 0 16px;
   font-size: 16px;
