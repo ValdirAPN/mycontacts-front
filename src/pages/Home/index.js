@@ -22,21 +22,23 @@ export default function Home() {
   )), [contacts, searchTerm])
 
   useEffect(() => {
-    setIsLoading(true)
-    fetch(`http://localhost:3001/contacts?orderBy=${orderBy}`)
-      .then(async (response) => {
+    async function loadContacts() {
+      try {
+        setIsLoading(true);
+
+        const response = await fetch(`http://localhost:3001/contacts?orderBy=${orderBy}`);
         const data = await response.json();
+
         console.log('Data', data);
         setContacts(data);
-
-      })
-      .catch((error) => {
-        setIsLoading(false);
+      } catch(error) {
         console.log('Error', error);
-      })
-      .finally(() => {
+      } finally {
         setIsLoading(false);
-      })
+      }
+    }
+
+    loadContacts();
   }, [orderBy]);
 
   function handleToggleOrderBy() {
